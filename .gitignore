@@ -1,0 +1,45 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Production builds
+dist/
+build/
+.output/
+
+# Environment files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.log
+
+# Editor directories
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Android build outputs & local properties
+android/.gradle/
+android/app/build/
+android/local.properties
+android/*.keystore
+android/*.jks
+client/android/.gradle/
+client/android/app/build/
+client/android/local.properties
+
+# OS files
+.DS_Store
+Thumbs.db

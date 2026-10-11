@@ -1,0 +1,36 @@
+{
+  "name": "aswora-ai",
+  "version": "1.0.0",
+  "description": "Aswora AI — Enterprise-grade, branded AI assistant with modern Android & web application",
+  "private": true,
+  "workspaces": [
+    "server",
+    "client"
+  ],
+  "scripts": {
+    "install:all": "npm install && cd server && npm install && cd ../client && npm install",
+    "dev": "concurrently \"npm run dev --workspace=server\" \"npm run dev --workspace=client\"",
+    "build": "npm run build --workspace=server && npm run build --workspace=client",
+    "test": "npm run test --workspace=server",
+    "cap:sync": "npm run cap:sync --workspace=client",
+    "cap:open": "npm run cap:open --workspace=client"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  },
+  "keywords": [
+    "ai",
+    "assistant",
+    "aswora",
+    "android",
+    "react",
+    "capacitor",
+    "mern",
+    "open-weight",
+    "llama3",
+    "groq",
+    "ollama"
+  ],
+  "author": "Aswora AI Team",
+  "license": "MIT"
+}
