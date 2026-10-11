@@ -28,36 +28,31 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
 
-      - name: Set up Android SDK
-        uses: android-actions/setup-android@v3
-
       - name: Install Client Dependencies
-        run: |
-          cd client
-          npm install
+        working-directory: client
+        run: npm install
 
       - name: Build React Production Bundle
-        run: |
-          cd client
-          npm run build
+        working-directory: client
+        run: npm run build
 
       - name: Synchronize Capacitor with Android Project
-        run: |
-          cd client
-          npx cap sync android
+        working-directory: client
+        run: npx cap sync android
 
       - name: Make Gradle wrapper executable
         run: chmod +x android/gradlew
 
       - name: Build Android Debug APK
-        run: |
-          cd android
-          ./gradlew assembleDebug --stacktrace
+        working-directory: android
+        run: ./gradlew assembleDebug --stacktrace
+        env:
+          ANDROID_HOME: /usr/local/lib/android/sdk
 
       - name: Upload Debug APK Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: Aswora-AI-v1.0.0-debug.apk
+          name: aswora-ai-debug
           path: android/app/build/outputs/apk/debug/app-debug.apk
           retention-days: 30
 
